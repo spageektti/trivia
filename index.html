@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fira.css">
+</head>
+
+<body>
+    <main>
+        <h1>Trivia Game</h1>
+        <form action="app">
+            <label for="amount">How many questions?</label>
+            <input name="amount" id="amount" type="number" value="10">
+
+            <label for="category">Choose a category:</label>
+            <select name="category" id="category">
+                <option value="">Any</option>
+                <!--- TODO -->
+            </select>
+
+            <label for="difficulty">Choose the difficulty:</label>
+            <select name="difficulty" id="difficulty">
+                <option value="">Any</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <label for="type">Choose type:</label>
+            <select name="type" id="type">
+                <option value="">Any</option>
+                <option value="boolean">True/False (Boolean)</option>
+                <option value="multiple">Multiple Choice</option>>
+            </select>
+
+            <input type="submit">
+            <input type="hidden" id="token" name="token" value="">
+        </form>
+        <p class="small">Uses Open Trivia Database API under the Creative Commons Attribution-ShareAlike 4.0
+            International License.
+        </p>
+    </main>
+    <script src="script.js"></script>
+    <script>//fetchAndSetToken();</script>
+</body>
+
+</html>

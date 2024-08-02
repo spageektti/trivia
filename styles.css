@@ -1,0 +1,46 @@
+html,
+body,
+main {
+    height: 100%;
+    background-color: black;
+    color: white;
+}
+
+main,
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1,
+p,
+input,
+label {
+    text-align: center;
+    font-family: "Fira Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+form * {
+    margin: 10px;
+}
+
+.small {
+    font-size: 0.7rem;
+}
+
+input,
+select {
+    background-color: black;
+    color: white;
+    border: solid 1px white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+label {
+    font-size: 1.2rem;
+}
