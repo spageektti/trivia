@@ -19,7 +19,6 @@
             <label for="category">Choose a category:</label>
             <select name="category" id="category">
                 <option value="">Any</option>
-                <!--- TODO -->
             </select>
 
             <label for="difficulty">Choose the difficulty:</label>
@@ -45,7 +44,10 @@
         </p>
     </main>
     <script src="script.js"></script>
-    <script>//fetchAndSetToken();</script>
+    <script>
+        fetchAndSetToken();
+        fetchAndPopulateCategories();
+    </script>
 </body>
 
 </html>

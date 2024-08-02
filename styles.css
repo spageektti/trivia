@@ -7,7 +7,8 @@ main {
 }
 
 main,
-form {
+form,
+.question-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +18,9 @@ form {
 h1,
 p,
 input,
-label {
+label,
+a,
+button {
     text-align: center;
     font-family: "Fira Mono", monospace;
     font-weight: 400;
@@ -33,14 +36,22 @@ form * {
 }
 
 input,
-select {
+select,
+button,
+a {
     background-color: black;
     color: white;
     border: solid 1px white;
     border-radius: 5px;
     font-size: 1rem;
+    text-decoration: none;
 }
 
 label {
     font-size: 1.2rem;
+}
+
+#answers {
+    display: flex;
+    justify-content: space-evenly;
 }

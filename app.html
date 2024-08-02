@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fira.css">
+</head>
+
+<body>
+    <main>
+        <h1>Trivia Game</h1>
+        <div id="question-container">
+            <p id="question"></p>
+            <div id="answers"></div>
+        </div>
+        <button id="next" style="display: none;">Next Question</button>
+        <p id="result"></p>
+        <a href="index" id="home" style="display: none;">Go Back to Main Page</a>
+        <p class="small">Uses Open Trivia Database API under the Creative Commons Attribution-ShareAlike 4.0
+            International License.</p>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        fetchAndDisplayQuestions();
+    </script>
+</body>
+
+</html>
