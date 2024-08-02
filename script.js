@@ -62,15 +62,72 @@ async function fetchAndDisplayQuestions() {
 }
 
 let currentQuestionIndex = 0;
+let correctAnswers = 0;
 let questions = [];
 
 function displayQuestions(fetchedQuestions) {
-
+    questions = fetchedQuestions;
+    showQuestion();
+    document.getElementById('next').addEventListener('click', showQuestion);
 }
 
 function showQuestion() {
+    const questionContainer = document.getElementById('question-container');
+    const questionElement = document.getElementById('question');
+    const answersElement = document.getElementById('answers');
+    const nextButton = document.getElementById('next');
+    const backToHomeButton = document.getElementById('home');
+
+    if (currentQuestionIndex < questions.length) {
+        const question = questions[currentQuestionIndex];
+        questionElement.innerHTML = question.question;
+
+        answersElement.innerHTML = '';
+
+        let answers = [...question.incorrect_answers, question.correct_answer];
+        answers = shuffleArray(answers);
+
+        answers.forEach(answer => {
+            const button = document.createElement('button');
+            button.innerHTML = answer;
+            button.addEventListener('click', () => selectAnswer(answer, question.correct_answer));
+            answersElement.appendChild(button);
+        });
+
+        nextButton.style.display = 'none';
+    } else {
+        questionContainer.style.display = 'none';
+        nextButton.style.display = 'none';
+        backToHomeButton.style.display = 'block';
+        document.getElementById('result').innerHTML = `You have completed the quiz!<br>You correctly answered ${correctAnswers} questions(${correctAnswers / currentQuestionIndex * 100}%).`;
+    }
 }
 
 function selectAnswer(selectedAnswer, correctAnswer) {
+    const nextButton = document.getElementById('next');
+    const buttons = document.getElementById('answers').getElementsByTagName('button');
 
+    if (selectAnswer === correctAnswer) {
+        correctAnswers++;
+    }
+
+    for (let button of buttons) {
+        button.disabled = true;
+        if (button.innerHTML === correctAnswer) {
+            button.style.backgroundColor = 'green';
+        } else if (button.innerHTML === selectedAnswer) {
+            button.style.backgroundColor = 'red';
+        }
+    }
+
+    currentQuestionIndex++;
+    nextButton.style.display = 'block';
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }

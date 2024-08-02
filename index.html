@@ -13,8 +13,8 @@
     <main>
         <h1>Trivia Game</h1>
         <form action="app">
-            <label for="amount">How many questions?</label>
-            <input name="amount" id="amount" type="number" value="10">
+            <label for="amount">How many questions (1-50)?</label>
+            <input name="amount" id="amount" type="number" value="10" min="1" max="50">
 
             <label for="category">Choose a category:</label>
             <select name="category" id="category">
